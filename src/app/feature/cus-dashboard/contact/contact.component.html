@@ -1,0 +1,19 @@
+<div fxLayout="row" fxFlexFill fxLayoutGap="20px" fxLayout.md="column">
+<span *ngFor= "let contact of contacts; let i = index">
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">img</div>
+      <mat-card-title>Name: {{contact.name}}</mat-card-title>
+      <mat-card-subtitle>Email: {{contact.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+     <span> Phone: {{contact.phone}}</span>
+     <span>address: {{contact.address}}</span>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+      <button mat-button (click)="editDialog(contact)">Edit</button>
+      <button mat-button (click)="onDelete(contact._id, i)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</span>
+</div>

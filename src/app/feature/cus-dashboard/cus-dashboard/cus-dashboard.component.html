@@ -1,0 +1,100 @@
+ 
+<div class="main">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+  
+        <!--    <button mat-icon-button >-->
+        <!--      &lt;!&ndash;      (click)="toggleSidenav.emit()"&ndash;&gt;-->
+        <!--      <mat-icon>menu</mat-icon>-->
+        <!--    </button>-->
+        <mat-icon id="iconone">verified_user</mat-icon>
+        <span> ContactBook </span>
+        <span class="spacer"></span>
+        <h5>Welcome {{name}}</h5>
+        
+        <button mat-icon-button [matMenuTriggerFor]="auth">
+                <mat-icon>person_outline</mat-icon>
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #auth="matMenu">
+                <button mat-menu-item >
+                  <!--(click)="logout()"-->
+                 <mat-icon>exit_to_app</mat-icon>
+                 <span (click)="logout()">Sign out</span>                  
+                </button>
+              </mat-menu>
+  
+        <!-- <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+  
+          <ul fxLayout fxLayoutGap="20px">
+  
+            <li fxHide.xs>
+              <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+            </li>
+  
+            <li fxHide.xs>
+              <button mat-icon-button>
+                <mat-icon>settings</mat-icon>
+              </button>
+            </li>
+  
+  
+            <li>
+              <button mat-icon-button [matMenuTriggerFor]="auth">
+                <mat-icon>person_outline</mat-icon>
+                <mat-icon>arrow_drop_down</mat-icon>
+              </button>
+              <mat-menu #auth="matMenu">
+                <button mat-menu-item > -->
+                  <!--(click)="logout()"-->
+                  <!-- <mat-icon>exit_to_app</mat-icon>
+                  <span>Sign out</span>
+                </button>
+              </mat-menu>
+            </li>
+  
+          </ul>
+  
+        </div> -->
+  
+      </mat-toolbar-row>
+  
+    </mat-toolbar>
+  
+    <mat-sidenav-container >
+  
+      <mat-sidenav role= "navigation" mode="side" opened="true">
+  
+        <mat-nav-list>
+          <a mat-list-item routerLink='contact' >Contacts</a>
+          <a mat-list-item *ngIf="access" routerLink='user'>Users</a>
+          <a mat-list-item routerLink='addcontact'>Add Contact</a>
+          <a mat-list-item routerLink='profile'>Profile</a>
+          <a mat-list-item routerLink='changepassword'>change password</a>
+          
+          <a mat-list-item *ngIf="access" routerLink='adduser'>Add User</a>
+          <a mat-list-item routerLink='#'>First Component</a>
+          <a mat-list-item routerLink='#'>First Component</a>
+          <a mat-list-item routerLink='#'>First Component</a>
+          <a mat-list-item routerLink='#'>First Component</a>
+        </mat-nav-list>
+  
+  
+      </mat-sidenav>
+  
+      <mat-sidenav-content>
+  
+  
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+  
+      </mat-sidenav-content>
+  
+    </mat-sidenav-container>
+  
+  </div>
+

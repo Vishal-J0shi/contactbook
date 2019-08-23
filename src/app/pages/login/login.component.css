@@ -1,0 +1,25 @@
+.main{
+    height:100vh;
+    background-color: #E8E8E8
+}
+
+.card{
+    width: 400px;
+}
+.mat-form-field{
+    width: 350px;
+    max-width:100%;
+  
+  }
+  
+  .mat-raised-button{
+    width: 270px;
+    max-width:100%;
+  }
+  
+  .mat-flat-button{
+    min-width: 1%;
+    font-size: 11px;
+    margin-top: 5px;
+    padding: 5px;
+  }

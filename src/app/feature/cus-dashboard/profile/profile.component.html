@@ -1,0 +1,33 @@
+<div class= "main" fxLayout="column" fxLayoutAlign= "center center">
+        <mat-card class="card">
+                <mat-card-title fxLayout="row" fxLayoutAlign="center center">Update Profile</mat-card-title>
+                <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                        <form [formGroup]="editProfileForm"  (ngSubmit)="onSubmit()" >
+                          <mat-form-field appearance="outline">
+                             <mat-label>Email</mat-label>
+                             <input matInput placeholder="" type="text" formControlName="email" >
+                          </mat-form-field>    
+                          <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="" type="text" formControlName="name" >
+                          </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput placeholder="" type="number" formControlName="phone" >
+                          </mat-form-field>                                
+                                <!-- <mat-label>Profile Picture</mat-label> -->
+                                <input type="file" formControlName="profile" (change)="onFileChange($event, 'profile')">
+                              
+                                
+                              <span fxLayout="row" fxLayoutAlign="center">
+                                  <button mat-raised-button type="submit" color="warn">Submit</button>
+                                </span>
+                          
+            
+                          
+                                </form>
+    
+                </mat-card-content>
+        </mat-card>
+    
+    </div>

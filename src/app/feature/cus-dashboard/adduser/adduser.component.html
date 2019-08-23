@@ -1,0 +1,56 @@
+<div class= "main" fxLayout="column" fxLayoutAlign= "center center">
+        <mat-card class="card">
+                <mat-card-title fxLayout="row" fxLayoutAlign="center center">Create User</mat-card-title>
+                <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                        <form [formGroup]="addUserForm"  (ngSubmit)="onSubmit()" >
+                          <mat-form-field appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="" type="text" formControlName="name" >
+                          </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput placeholder="" type="number" formControlName="phone" >
+                          </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Email</mat-label>
+                                  <input matInput placeholder="" type="text" formControlName="email" >
+                                  <mat-error *ngIf="email.invalid">
+                                      <div *ngIf="email.errors?.userEmailExists">
+                                        Email is already registered.
+                                      </div>
+                                    </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Password</mat-label>
+                                  <label>
+                                    <input matInput type="password" formControlName="password"  >
+                                  </label>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                        <mat-label>Confirm Password</mat-label>
+                                        <label>
+                                          <input matInput type="password" formControlName="confirmpassword"  >
+                                        </label>
+                                        <mat-error *ngIf="confirmpassword.invalid">
+                                            <div *ngIf="confirmpassword.errors?.passwordNotMatch">
+                                              Password does not match
+                                            </div>
+                                          </mat-error>
+                                      </mat-form-field>
+                                
+                                <!-- <mat-label>Profile Picture</mat-label> -->
+                                <input type="file" formControlName="profile" (change)="onFileChange($event, 'profile')">
+                              
+                                
+                              <span fxLayout="row" fxLayoutAlign="center">
+                                  <button mat-raised-button type="submit" color="warn">Add User</button>
+                                </span>
+                          
+            
+                          
+                                </form>
+    
+                </mat-card-content>
+        </mat-card>
+    
+    </div>
