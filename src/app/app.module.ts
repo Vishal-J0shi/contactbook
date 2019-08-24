@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {httpInterceptorProviders} from '@/core/interceptor';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 
@@ -34,7 +35,7 @@ import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.comp
 
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

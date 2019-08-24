@@ -2,6 +2,9 @@ let express = require('express');
 let app = new express();
 
 var cors = require('cors');
+var passport = require('passport');
+
+
 
 //app.user(bodyParser.json());
 // after the code that uses bodyParser and other cool stuff
@@ -38,8 +41,12 @@ let updatecontact = require('./routes/updatecontact');
 let updateuser = require('./routes/updateuser');
 let checkemail = require('./routes/checkuseremail');
 
+require('./config/passport');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(passport.initialize());
 
 // Add to express instanceuser
 app.use('/', login);

@@ -39,7 +39,8 @@
                                       </mat-form-field>
                                 
                                 <!-- <mat-label>Profile Picture</mat-label> -->
-                                <input type="file" formControlName="profile" (change)="onFileChange($event, 'profile')">
+                                <input #fileInput type="file" formControlName="profile" (change)="onFileSelect($event)" > 
+                                <!-- (change)="onFileChange($event, 'profile')" -->
                               
                                 
                               <span fxLayout="row" fxLayoutAlign="center">

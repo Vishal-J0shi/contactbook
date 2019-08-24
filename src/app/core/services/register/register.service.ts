@@ -8,10 +8,15 @@ import {map, catchError, } from 'rxjs/operators';
 })
 export class RegisterService {
 
+  header = {
+    headers: {
+      'Content-Type': ''
+    } };
+
   constructor(private http: HttpClient) { }
   register(logindata): Observable<any> {
     console.log(logindata);
-    return this.http.post<any>('/api/register', logindata, )
+    return this.http.post<any>('/api/register', logindata)
       .pipe(map(user => {
          console.log(user);
          if (user.success) {

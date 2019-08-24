@@ -12,9 +12,9 @@ router.get('/api/checkemail/:email', async (request, response)=>{
     const userEmailExist = await User.findOne({email:email});
     const contactEmailExist = await Contact.findOne({email:email});
 
-    console.log(userEmailExist);
+    console.log(`From checkuseremail ${userEmailExist}`);
     if(userEmailExist || contactEmailExist){
-        response.json({success: false, message: 'Email Exists'})
+        response.json({success: false, message: 'Email Exists'});
     }else {
         response.json({success: true, message: 'Email does not exist'});
         }
