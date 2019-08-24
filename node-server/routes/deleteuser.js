@@ -5,7 +5,7 @@ const passport = require('passport');
 let db = require('../db');
 let User = db.user;
 
-router.post('/api/deleteuser', async (request, response)=>{
+router.post('/api/deleteuser', async (request, response, next)=>{
 
   passport.authenticate('jwt', { session: false }, async (err, user, info) => {
       if (err) {

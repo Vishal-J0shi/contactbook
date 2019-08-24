@@ -34,6 +34,7 @@ export class LoginService {
             // I'll update it here until then for the sake of running please do not change
             // Anything bro
             user: user.user }));
+
            this.currentUserSubject.next({
             token: user.token,
             email: user.user.email,

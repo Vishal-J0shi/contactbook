@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage });
 
 
-router.post('/api/updateprofile',upload.single('profile'), async (request, response)=>{
+router.post('/api/updateprofile',upload.single('profile'), async (request, response, next)=>{
 
   passport.authenticate('jwt', { session: false }, async (err, user, info) => {
       if (err) {
@@ -32,6 +32,7 @@ router.post('/api/updateprofile',upload.single('profile'), async (request, respo
         response.status(401).send(info.message);
       } else if (user.email) {
         let id = request.body.id;
+        console.log(id);
         let email = request.body.email;
         let name = request.body.name;
         let phone = request.body.phone;
@@ -66,11 +67,14 @@ router.post('/api/updateprofile',upload.single('profile'), async (request, respo
               console.log(update);
               const newData = await User.findById(id);
               if(newData) {
+                console.log(`update profile ${newData}`);
                 response.json({success:true, message: 'User updated', user:newData});
               }else {
+                console.log(`updateprofile error`);
                 response.json({success: false, message:'Internal Error'});
               }
           }else {
+              console.log(`updateprofile error else`);
               response.json({success: false, message:'User cannot be updated'});
           }
         }

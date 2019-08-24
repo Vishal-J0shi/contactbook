@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
     });
   }
   openSnackBarFail() {
-    this.snackBar.open('Registration failed', 'Close', {
+    this.snackBar.open('Update Failed', 'Close', {
       duration: 2000,
       panelClass: ['style-success'],
     });
@@ -52,7 +52,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.editProfileForm.patchValue({
-      id: JSON.parse(localStorage.getItem('currentUser')).user._id,
+      id: JSON.parse(localStorage.getItem('currentUser')).user.user.id,
       email: JSON.parse(localStorage.getItem('currentUser')).user.email,
       name: JSON.parse(localStorage.getItem('currentUser')).user.name,
       phone: JSON.parse(localStorage.getItem('currentUser')).user.phone,

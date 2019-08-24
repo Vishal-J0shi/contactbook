@@ -5,7 +5,7 @@ const passport = require('passport');
 let db = require('../db');
 let User = db.user;
 
-router.post('/api/changepassword', async (request, response)=>{
+router.post('/api/changepassword', async (request, response, next)=>{
   passport.authenticate('jwt', { session: false }, async (err, user, info) => {
       if (err) {
         console.log(err);

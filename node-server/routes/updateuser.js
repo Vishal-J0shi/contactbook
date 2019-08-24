@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage });
 
 
-router.post('/api/updateuser',upload.single('profile'), async (request, response)=>{
+router.post('/api/updateuser',upload.single('profile'), async (request, response, next)=>{
   passport.authenticate('jwt', { session: false }, async (err, user, info) => {
       if (err) {
         console.log(err);
