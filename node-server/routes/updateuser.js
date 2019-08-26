@@ -3,6 +3,7 @@ let router = express.Router();
 var path = require('path');
 var fs = require('fs');
 const passport = require('passport');
+const bcrypt = require('bcryptjs');
 
 let db = require('../db');
 let User = db.user;
@@ -30,6 +31,9 @@ router.post('/api/updateuser',upload.single('profile'), async (request, response
         console.log(info.message);
         response.status(401).send(info.message);
       } else if (user.email) {
+
+
+
         let id = request.body.id;
 
         let email = request.body.email;
@@ -59,12 +63,13 @@ router.post('/api/updateuser',upload.single('profile'), async (request, response
         }
 
         if(!file && password) {
+          const hashedpw = await bcrypt.hash(password, 12);
           const update = await User.findByIdAndUpdate(id,{
               name: name,
               email: email,
               phone: phone,
               address: address,
-              password: password
+              password: hashedpw
           });
           console.log(update.profile);
           if(update){
