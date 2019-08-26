@@ -50,9 +50,10 @@ export class ProfileComponent implements OnInit {
     });
   }
   ngOnInit() {
+    console.log(JSON.parse(localStorage.getItem('currentUser')).user.id);
     this.createForm();
     this.editProfileForm.patchValue({
-      id: JSON.parse(localStorage.getItem('currentUser')).user.user.id,
+      id: JSON.parse(localStorage.getItem('currentUser')).user.id,
       email: JSON.parse(localStorage.getItem('currentUser')).user.email,
       name: JSON.parse(localStorage.getItem('currentUser')).user.name,
       phone: JSON.parse(localStorage.getItem('currentUser')).user.phone,
